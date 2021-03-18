@@ -27,12 +27,12 @@ public class BookServiceImpl implements BookService {
             List<Predicate> list = new ArrayList<>();
             @Override
             public Predicate toPredicate(Root<Book> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
-                if (!ObjectUtils.isEmpty(textBookQuery.getBookName())){
+                if (!ObjectUtils.isEmpty(textBookQuery.getBookName()) && textBookQuery.getBookName()!=""){
                     Path<String> bookName = root.get("bookName");
                     Predicate predicate = criteriaBuilder.like(bookName.as(String.class),"%"+textBookQuery.getBookName()+"%");
                     list.add(predicate);
                 }
-                if (!ObjectUtils.isEmpty(textBookQuery.getAuthor())){
+                if (!ObjectUtils.isEmpty(textBookQuery.getAuthor()) && textBookQuery.getAuthor()!=""){
                     Path<String> author = root.get("author");
                     Predicate predicate = criteriaBuilder.like(author.as(String.class),"%"+textBookQuery.getAuthor()+"%");
                     list.add(predicate);

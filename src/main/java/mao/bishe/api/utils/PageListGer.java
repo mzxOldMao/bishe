@@ -1,0 +1,18 @@
+package mao.bishe.api.utils;
+
+
+
+import lombok.Data;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Data
+public class PageListGer<T> {
+
+	private int number;   //当前页
+    private int totalElements;   //总行数
+    private int totalPages;    //总页数
+    private List<T> content=new ArrayList<>();
+    
+}

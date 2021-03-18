@@ -22,7 +22,12 @@ public class User implements Serializable {
     @Column(name = "password")
     @JsonIgnore
     private String password;
-
+    @Column(name = "sex")
+    private String sex;
+    @Column(name = "native")
+    private String nati;
+    @Column(name = "picture")
+    private byte[] picture;
     public boolean validPassword(String password) {
 
         return this.password.equals(password);
